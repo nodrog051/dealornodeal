@@ -18,7 +18,6 @@ func _on_grant_coins_btn_pressed() -> void:
 	experience_progress.value = float(coins_value)
 	var new_word = generate_word(characters, 10)
 	print(new_word)
-	
 	nick_name.text = new_word
 	
 	
