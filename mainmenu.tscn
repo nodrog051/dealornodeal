@@ -1,0 +1,159 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbbe1if4b103q"]
+
+[ext_resource type="Texture2D" uid="uid://cabwlmx0y4v8d" path="res://tile_0056.png" id="1_cmhrf"]
+[ext_resource type="Script" uid="uid://dnuhrjxynb1ru" path="res://mainmenu.gd" id="1_igs2m"]
+[ext_resource type="FontFile" uid="uid://yfno485ulml0" path="res://Eater-Regular.ttf" id="2_wgsso"]
+[ext_resource type="Texture2D" uid="uid://qt4dkoje6pet" path="res://crown-coin.svg" id="3_igs2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2nv2"]
+bg_color = Color(0.927209, 0.408928, 0.454089, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(0.3936, 0.378064, 0.103412, 0.6)
+shadow_size = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgsso"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pujl"]
+bg_color = Color(0.927209, 0.408928, 0.454089, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(0.3936, 0.378064, 0.103412, 0.6)
+shadow_size = 22
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = 31.0
+offset_right = -13.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_igs2m")
+
+[node name="GrantCoinsBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -326.0
+offset_top = -171.0
+offset_right = -94.0
+offset_bottom = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PlayerInfoBox" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -75.0
+offset_right = 767.0
+offset_bottom = 360.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2nv2")
+
+[node name="AvatarFrame" type="Panel" parent="PlayerInfoBox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = -103.5
+offset_right = 283.0
+offset_bottom = 118.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wgsso")
+
+[node name="Avatar" type="TextureRect" parent="PlayerInfoBox/AvatarFrame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -99.0
+offset_right = 106.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cmhrf")
+
+[node name="NickName" type="Label" parent="PlayerInfoBox"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 331.0
+offset_top = 47.0
+offset_right = 740.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("2_wgsso")
+theme_override_font_sizes/font_size = 22
+text = "Label Text
+"
+
+[node name="ExperienceProgress" type="ProgressBar" parent="PlayerInfoBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 331.0
+offset_top = -289.0
+offset_right = -169.0
+offset_bottom = -242.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 23.0
+rounded = true
+
+[node name="CoinBox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -279.0
+offset_bottom = 285.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3pujl")
+
+[node name="Coin" type="TextureRect" parent="CoinBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -82.185
+offset_right = 109.0
+offset_bottom = 82.185
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_igs2m")
+expand_mode = 1
+
+[connection signal="pressed" from="GrantCoinsBtn" to="." method="_on_grant_coins_btn_pressed"]
